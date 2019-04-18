@@ -11,7 +11,7 @@ namespace App\Services;
 
 use App\Product;
 
-class Checkout
+class Checkout implements CheckoutInterface
 {
     /**
      * The pricing rules
@@ -52,7 +52,7 @@ class Checkout
      * @param string $productCode
      * @throws \Exception
      */
-    public function scan(string $productCode)
+    public function scan(string $productCode): void
     {
         $product = Product::where('code', $productCode)->first();
 
@@ -71,9 +71,11 @@ class Checkout
 
     /**
      * Get the total of the cart
+     *
      * @throws \Exception
+     * @return float;
      */
-    public function total()
+    public function total(): float
     {
         $total = 0;
 
@@ -85,13 +87,13 @@ class Checkout
             }
         }
 
-        return $total;
+        return (float)$total;
     }
 
     /**
      * Clear cart
      */
-    public function clear()
+    public function clear(): void
     {
         $this->items = [];
     }
