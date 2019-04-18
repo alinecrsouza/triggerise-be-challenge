@@ -39,6 +39,14 @@ class Checkout
     }
 
     /**
+     * @return array
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    /**
      * Scan a product
      *
      * @param string $productCode
@@ -63,6 +71,7 @@ class Checkout
 
     /**
      * Get the total of the cart
+     * @throws \Exception
      */
     public function total()
     {
