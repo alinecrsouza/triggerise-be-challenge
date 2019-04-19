@@ -10,7 +10,9 @@
 ## Usage
 Is possible to test the service in Tinker, the Laravel interative console.
 
-Example (enter each line in the Tinker terminal and press enter):
+Before use the service, you need to create and populate the products table (see Useful commands section below).
+
+**Example** (enter each line in the Tinker terminal and press enter):
 
 ``` 
 use App\Services\Checkout;
@@ -25,13 +27,14 @@ $co->clear(); //clear the cart
 ```
    
 ## Useful commands
-* `php artisan migrate --seed` - Generate and populate the products table
+* `php artisan migrate --seed` - Create and populate the products table
 * `php artisan tinker` - Initiate the tinker console
 * `phpunit` - Run the tests
 
 ## Comments
 * The controller app/Http/Controllers/CheckoutController was created to ilustrate the use of the service.
 * The request app/Http/Requests/CheckoutRequest was created to ilustrate the validation of the data provided to the service.
+* The service throws exceptions that need to be handled by the method calling the service.
 * The tests are inside the folder tests/Unit.
 * The service files are inside the folder app/Services
 
