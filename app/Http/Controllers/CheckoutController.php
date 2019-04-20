@@ -23,7 +23,18 @@ class CheckoutController extends Controller
     {
         $pricingRules = $request->validated();
 
+        /**
+         * Do some stuff here to normalize the $pricingRules array. That is, put it in the format expected by the service.
+         * For example, you could use a custom method:
+         * $pricingRules = $this->normalize($pricingRules);
+         *
+         */
+
         $this->checkoutService = new Checkout($pricingRules);
+
+        /**
+         * Send some response here
+         */
     }
 
 }
